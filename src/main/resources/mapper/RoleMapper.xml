@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pzhu.hospital.mapper.RoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.pzhu.hospital.entity.Role">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="role_name" property="Role_name" jdbcType="VARCHAR" />
+        <result column="role_sign" property="Role_sign" jdbcType="VARCHAR" />
+        <result column="role_desc" property="Role_desc" jdbcType="VARCHAR" />
+    </resultMap>	
+
+	<sql id="Base_Column_List">
+		id, role_name, role_sign, role_desc
+	</sql>
+	 
+	<select id="selectRolesByUserCode"  resultMap="BaseResultMap">
+       select 
+		 r.id,r.role_name,r.role_sign,r.role_desc
+		 from tab_role r left join tab_user_role f on r.id=f.role_id
+		where f.user_code = #{user_code}
+	</select>
+ 
+</mapper>
