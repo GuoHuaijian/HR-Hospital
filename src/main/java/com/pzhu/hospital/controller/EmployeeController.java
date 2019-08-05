@@ -17,8 +17,8 @@ import com.pzhu.hospital.entity.History;
 import com.pzhu.hospital.entity.Position;
 import com.pzhu.hospital.service.DepartmentService;
 import com.pzhu.hospital.service.EmployeeService;
+import com.pzhu.hospital.service.HistoryService;
 import com.pzhu.hospital.service.PositionService;
-import com.pzhu.hospital.serviceimpl.HistoryServiceImpl;
 import com.pzhu.hospital.util.MTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,7 +53,7 @@ public class EmployeeController {
     private DepartmentService departmentService;
 
     @Autowired
-    private HistoryServiceImpl historyService;
+    private HistoryService historyService;
 
     /**
      * 查看个人信息

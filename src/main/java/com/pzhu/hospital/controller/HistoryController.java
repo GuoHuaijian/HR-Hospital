@@ -15,10 +15,10 @@ import com.pzhu.hospital.entity.Department;
 import com.pzhu.hospital.entity.Employee;
 import com.pzhu.hospital.entity.History;
 import com.pzhu.hospital.entity.Position;
-import com.pzhu.hospital.serviceimpl.DepartmentServiceImpl;
-import com.pzhu.hospital.serviceimpl.EmployeeServiceImpl;
-import com.pzhu.hospital.serviceimpl.HistoryServiceImpl;
-import com.pzhu.hospital.serviceimpl.PositionServiceImpl;
+import com.pzhu.hospital.service.DepartmentService;
+import com.pzhu.hospital.service.EmployeeService;
+import com.pzhu.hospital.service.HistoryService;
+import com.pzhu.hospital.service.PositionService;
 import com.pzhu.hospital.util.MTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,16 +42,16 @@ import java.util.List;
 public class HistoryController {
 
     @Autowired
-    private HistoryServiceImpl historyService;
+    private HistoryService historyService;
 
     @Autowired
-    private EmployeeServiceImpl employeeService;
+    private EmployeeService employeeService;
 
     @Autowired
-    private DepartmentServiceImpl departmentService;
+    private DepartmentService departmentService;
 
     @Autowired
-    private PositionServiceImpl positionService;
+    private PositionService positionService;
 
     /**
      * 离休员工列表

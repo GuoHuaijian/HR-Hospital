@@ -12,7 +12,7 @@ package com.pzhu.hospital.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.pzhu.hospital.entity.Department;
-import com.pzhu.hospital.serviceimpl.DepartmentServiceImpl;
+import com.pzhu.hospital.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +35,7 @@ import java.util.List;
 public class DepartmentController {
 
     @Autowired
-    private DepartmentServiceImpl departmentService;
+    private DepartmentService departmentService;
 
     /**
      * 部门列表信息

@@ -9,6 +9,7 @@
  */
 package com.pzhu.hospital.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.pzhu.hospital.entity.Leave;
 
@@ -22,7 +23,7 @@ import java.util.List;
  * @description: 请假信息
 
  */
-public interface LeaveService {
+public interface LeaveService extends IService<Leave>{
 
     /**
      * 查询所有请假记录

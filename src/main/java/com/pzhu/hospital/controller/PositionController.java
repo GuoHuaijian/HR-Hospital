@@ -12,7 +12,7 @@ package com.pzhu.hospital.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.pzhu.hospital.entity.Position;
-import com.pzhu.hospital.serviceimpl.PositionServiceImpl;
+import com.pzhu.hospital.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +35,7 @@ import java.util.List;
 public class PositionController {
 
     @Autowired
-    private PositionServiceImpl positionService;
+    private PositionService positionService;
 
     /**
      * 职称列表信息

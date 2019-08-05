@@ -14,9 +14,9 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.pzhu.hospital.entity.Department;
 import com.pzhu.hospital.entity.Employee;
 import com.pzhu.hospital.entity.Overtime;
-import com.pzhu.hospital.serviceimpl.DepartmentServiceImpl;
-import com.pzhu.hospital.serviceimpl.EmployeeServiceImpl;
-import com.pzhu.hospital.serviceimpl.OvertimeServiceImpl;
+import com.pzhu.hospital.service.DepartmentService;
+import com.pzhu.hospital.service.EmployeeService;
+import com.pzhu.hospital.service.OvertimeService;
 import com.pzhu.hospital.util.MTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,13 +41,13 @@ import java.util.List;
 public class OvertimeController {
 
     @Autowired
-    private OvertimeServiceImpl overtimeService;
+    private OvertimeService overtimeService;
 
     @Autowired
-    private DepartmentServiceImpl departmentService;
+    private DepartmentService departmentService;
 
     @Autowired
-    private EmployeeServiceImpl employeeService;
+    private EmployeeService employeeService;
 
     /**
      *个人加班信息

@@ -10,7 +10,7 @@
 package com.pzhu.hospital.controller;
 
 import com.pzhu.hospital.entity.Attendance;
-import com.pzhu.hospital.serviceimpl.AttendanceServiceImpl;
+import com.pzhu.hospital.service.AttendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +32,7 @@ import java.util.List;
 public class AttendanceController {
 
     @Autowired
-    private AttendanceServiceImpl attendanceService;
+    private AttendanceService attendanceService;
 
     /**
      * 个人考勤记录

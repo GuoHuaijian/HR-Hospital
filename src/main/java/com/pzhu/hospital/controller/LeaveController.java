@@ -12,7 +12,7 @@ package com.pzhu.hospital.controller;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.pzhu.hospital.entity.Employee;
 import com.pzhu.hospital.entity.Leave;
-import com.pzhu.hospital.serviceimpl.LeavaServiceImpl;
+import com.pzhu.hospital.service.LeaveService;
 import com.pzhu.hospital.util.MTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,8 +37,7 @@ import java.util.List;
 public class LeaveController {
 
     @Autowired
-    private LeavaServiceImpl leavaService;
-
+    private LeaveService leaveService;
     /**
      * 请假申请页面的跳转
      * @param
@@ -61,7 +60,7 @@ public class LeaveController {
     @RequestMapping("/oneself")
     public String selectOne(HttpSession session, int pageNo, Model model){
         Employee employee = (Employee)session.getAttribute("user");
-        Page<Leave> page = leavaService.seletByEmployee(employee.getEmployeeNumber(), pageNo);
+        Page<Leave> page = leaveService.seletByEmployee(employee.getEmployeeNumber(), pageNo);
         model.addAttribute("page", page);
         return "admin/oneself_leave";
     }
@@ -77,7 +76,7 @@ public class LeaveController {
     public String selectNotList(Model model, HttpSession session){
         //获取登录用户的信息
         Employee employee = (Employee) session.getAttribute("user");
-        List<Leave> list = leavaService.selectListByStatus(employee.getDepartmentNumber(), "未批准");
+        List<Leave> list = leaveService.selectListByStatus(employee.getDepartmentNumber(), "未批准");
         model.addAttribute("list", list);
         return "admin/leave_notlist";
     }
@@ -93,7 +92,7 @@ public class LeaveController {
     public String selectYesList(Model model, HttpSession session){
         //获取登录用户的信息
         Employee employee = (Employee) session.getAttribute("user");
-        List<Leave> list = leavaService.selectListByStatus(employee.getDepartmentNumber(), "已批准");
+        List<Leave> list = leaveService.selectListByStatus(employee.getDepartmentNumber(), "已批准");
         model.addAttribute("list", list);
         return "admin/leave_yeslist";
     }
@@ -106,7 +105,7 @@ public class LeaveController {
      */
     @RequestMapping("/list")
     public String selectList(Model model){
-        List<Leave> list = leavaService.selectList();
+        List<Leave> list = leaveService.selectList();
         model.addAttribute("list", list);
         return "admin/leave_list";
     }
@@ -127,7 +126,7 @@ public class LeaveController {
         leave.setStartTime(MTimeUtil.stringParse(start));
         leave.setEndTime(MTimeUtil.stringParse(end));
         try {
-            leavaService.insert(leave);
+            leaveService.insert(leave);
         }catch (Exception e){
             return "fail";
         }
@@ -144,7 +143,7 @@ public class LeaveController {
      */
     @RequestMapping("/{id}/detail")
     public String selectLeave(@PathVariable Integer id, Model model){
-        Leave leave = leavaService.selectLeave(id);
+        Leave leave = leaveService.selectLeave(id);
         model.addAttribute("leave", leave);
         return "admin/leave_detail";
     }
@@ -157,7 +156,7 @@ public class LeaveController {
      */
     @RequestMapping("/{id}/update")
     public String updateStatus(@PathVariable Integer id){
-        leavaService.updateStatus(id);
+        leaveService.updateStatus(id);
         return "forward:/leave/notlist";
     }
 }
