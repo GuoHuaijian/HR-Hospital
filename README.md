@@ -1,5 +1,5 @@
 # HR-Hospital
- ![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-brightgreen.svg) ![Java](https://img.shields.io/badge/Java-1.8-blue.svg)![Database](https://img.shields.io/badge/Database-MySQL-lightgrey.svg)
+ ![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-brightgreen.svg) ![Java](https://img.shields.io/badge/Java-1.8-blue.svg) ![Database](https://img.shields.io/badge/Database-MySQL-lightgrey.svg)
 - 医院人事管理💼
 - shiro 🔒
 - SpringBoot框架🎨
